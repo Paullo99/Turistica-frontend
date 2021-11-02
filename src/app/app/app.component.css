@@ -1,0 +1,49 @@
+.navbar{
+    position: fixed;
+    height: 110px;
+    top: 0; 
+    z-index: 100;
+    justify-content: space-between;
+    background: #F2F2F2;
+    color:#333333;
+}
+
+.image-container{
+    transition: 0.5s all ease;
+    padding-left: 50px;
+    width: 100%;
+}
+
+.image-container:hover{
+    opacity: 0.5;
+    transition: 0.5s all ease;
+}
+
+span {
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-right: 1rem;
+    display:inline;
+    transition: 0.6s all ease;
+    color:#333333
+}
+
+span:hover{
+    background: #6b6b6b ;
+    color: #F2F2F2;
+    font-size: 22px;
+    transition: 0.6s all ease;
+}
+
+.footer{
+    clear: both;
+    bottom: 0;
+    position: relative;
+    /* background-color: #F2F2F2; */
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,43 @@
+body{
+    opacity: 0.75;
+}
+
+mat-card{
+    background: #F2F2F2;
+    height: 250px;
+    width: 60%;
+    transform: translate(30%, 0%);
+    margin-bottom: 40px;
+}
+
+mat-card-title{
+    padding-top: 40px;
+    font-size: 35px;
+}
+
+mat-card-subtitle{
+    padding-top: 10px;
+    font-size: 17px;
+}
+
+mat-card-content{
+    padding-top: 10px;
+    font-size: 20px;
+    font-family: "Bahnschrift";
+}
+
+img{
+    height: 250px;
+    padding-left: 10px;
+    width: auto;
+}
+
+#img-column{
+    width: 37%;
+}
+
+.column {
+    float: left;
+    width: 60%;
+  }
+  
