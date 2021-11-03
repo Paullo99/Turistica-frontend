@@ -3,21 +3,24 @@ import { Trip } from '../classes/trip';
 import { TripService } from '../services/trip.service';
 
 @Component({
-  selector: 'app-archive-trips',
-  templateUrl: './archive-trips.component.html',
-  styleUrls: ['./archive-trips.component.css']
+  selector: 'app-archive-trip-list',
+  templateUrl: '../trip-list/trip-list.component.html',
+  styleUrls: ['../trip-list/trip-list.component.css',  './archive-trip-list.component.css']
 })
-export class ArchiveTripsComponent implements OnInit {
+export class ArchiveTripListComponent implements OnInit {
 
   trips: Trip[] = [];
   constructor(private tripService: TripService) {
     this.tripService.getArchiveTrips().subscribe(data => {
       this.trips = data;
-      console.log(this.trips[0]);
     });
   }
 
   ngOnInit(): void {
+  }
+
+  test(id:number){
+    console.log(id);
   }
 
 }

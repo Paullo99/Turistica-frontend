@@ -13,6 +13,8 @@ export class TripService {
 
   private archiveTripsUrl = "http://localhost:8080/trips/archive";
 
+  private specificTripUrl = "http://localhost:8080/trip-details/";
+
   constructor(private httpClient: HttpClient) { }
 
   public getTrips(): Observable<Trip[]>{
@@ -21,5 +23,9 @@ export class TripService {
 
   public getArchiveTrips(): Observable<Trip[]>{
     return this.httpClient.get<Trip[]>(this.archiveTripsUrl);
+  }
+
+  public getTripById(id:any): Observable<Trip>{
+    return this.httpClient.get<Trip>(this.specificTripUrl + id);
   }
 }

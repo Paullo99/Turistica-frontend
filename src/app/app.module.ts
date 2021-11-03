@@ -13,14 +13,16 @@ import { TripListComponent } from './trip-list/trip-list.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
 import { LOCALE_ID } from '@angular/core';
-import { ArchiveTripsComponent } from './archive-trips/archive-trips.component';
+import { ArchiveTripListComponent } from './archive-trip-list/archive-trip-list.component';
+import { TripDetailsComponent } from './trip-details/trip-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TripListComponent,
     HomePageComponent,
-    ArchiveTripsComponent
+    ArchiveTripListComponent,
+    TripDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,19 @@
 body{
-    opacity: 0.75;
+    display: block;
+    margin-bottom:20vmin
 }
 
 mat-card{
+    position: relative;
     background: #F2F2F2;
-    height: 250px;
-    width: 60%;
+    width: 1150px;
     transform: translate(30%, 0%);
-    margin-bottom: 40px;
+    padding-top: 40px;
 }
 
 mat-card-title{
-    padding-top: 40px;
-    font-size: 35px;
+    font-size: 45px;
+    text-align: center;
 }
 
 mat-card-subtitle{
@@ -21,19 +22,21 @@ mat-card-subtitle{
 }
 
 mat-card-content{
+    padding-left: 10px;
     padding-top: 10px;
-    font-size: 20px;
+    font-size: 23px;
     font-family: "Bahnschrift";
 }
 
 img{
-    height: 250px;
-    padding-left: 10px;
-    width: auto;
+    width: 900px;
+}
+#description{
+    font-size: 20px;
 }
 
-#img-column{
-    width: 37%;
+#warning-message{
+    color:red;
 }
 
 .column {

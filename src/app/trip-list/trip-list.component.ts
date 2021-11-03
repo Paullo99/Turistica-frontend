@@ -13,16 +13,10 @@ export class TripListComponent implements OnInit {
   constructor(private tripService: TripService) {
     this.tripService.getTrips().subscribe(data => {
       this.trips = data;
-      console.log(this.trips[0]);
     });
   }
 
   ngOnInit(): void {
-  }
-
-  test(){
-    
-    
   }
 
 }

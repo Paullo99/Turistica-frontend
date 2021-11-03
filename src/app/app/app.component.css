@@ -9,13 +9,16 @@
 }
 
 .image-container{
-    transition: 0.5s all ease;
     padding-left: 50px;
     width: 100%;
 }
 
-.image-container:hover{
+img:hover{
     opacity: 0.5;
+    transition: 0.5s all ease;
+}
+
+img{
     transition: 0.5s all ease;
 }
 
@@ -27,7 +30,8 @@ span {
     margin-right: 1rem;
     display:inline;
     transition: 0.6s all ease;
-    color:#333333
+    color:#333333;
+    cursor: pointer;
 }
 
 span:hover{

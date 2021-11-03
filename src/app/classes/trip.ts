@@ -1,10 +1,12 @@
-export class Trip {
-    name: string = "";
-    tripType: string = "";
-    beginDate: Date = new Date();
-    endDate: Date = new Date();
-    pricePerPerson: number = 0;
-    limit: number = 0 ;
+export interface Trip {
+    id: number;
+    name: string;
+    tripType: string;
+    beginDate: Date;
+    endDate: Date;
+    pricePerPerson: number;
+    enrolledPeople: number;
+    limit: number;
+    description: string;
     exampleImage: any;
-    
 }

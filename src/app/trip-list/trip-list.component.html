@@ -7,7 +7,7 @@
                 <img *ngIf="trip.tripType == 'Turystyka morska'" src="./assets/images/sea.png">
             </div>
             <div class="column"> 
-                <mat-card-title>{{trip.name}}</mat-card-title>
+                <mat-card-title routerLink="/trip-details/{{trip.id}}">{{trip.name}}</mat-card-title>
                 <mat-card-subtitle>{{trip.tripType}}</mat-card-subtitle></div>
                 <mat-card-content>
                     Data wyjazdu: <b>{{trip.beginDate}} r. - {{trip.endDate}} r.</b> <br><br>

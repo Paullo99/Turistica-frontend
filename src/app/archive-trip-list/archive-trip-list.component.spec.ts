@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArchiveTripsComponent } from './archive-trips.component';
+import { ArchiveTripListComponent } from './archive-trip-list.component';
 
-describe('ArchiveTripsComponent', () => {
-  let component: ArchiveTripsComponent;
-  let fixture: ComponentFixture<ArchiveTripsComponent>;
+describe('ArchiveTripListComponent', () => {
+  let component: ArchiveTripListComponent;
+  let fixture: ComponentFixture<ArchiveTripListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArchiveTripsComponent ]
+      declarations: [ ArchiveTripListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArchiveTripsComponent);
+    fixture = TestBed.createComponent(ArchiveTripListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
