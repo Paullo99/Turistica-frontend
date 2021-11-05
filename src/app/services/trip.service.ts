@@ -21,6 +21,11 @@ export class TripService {
     return this.httpClient.get<Trip[]>(this.url);
   }
 
+  public getTripsFilteredByDate(beginDate: string, endDate: string): Observable<Trip[]>{
+    console.log(this.url+"?beginDate=" + beginDate+"&endDate="+endDate);
+    return this.httpClient.get<Trip[]>(this.url+"?beginDate=" + beginDate+"&endDate="+endDate);
+  }
+
   public getArchiveTrips(): Observable<Trip[]>{
     return this.httpClient.get<Trip[]>(this.archiveTripsUrl);
   }

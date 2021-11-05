@@ -1,8 +1,27 @@
+mat-form-field{
+    left: 20.3%;
+    width: 200px;
+    margin-bottom: 10px;
+    margin-right: 40px;
+}
+
+#filter-button{
+    background-color: #F2F2F2;
+    left: 21.5%;
+    transition: 0.6s all ease;
+}
+
+#filter-button:hover{
+    background-color: #6b6b6b;
+    color: #F2F2F2;
+    transition: 0.6s all ease;
+}
+
 mat-card{
     background: #F2F2F2;
     height: 250px;
     width: 1150px;
-    transform: translate(30%, 0%);
+    left: 20%;
     margin-bottom: 40px;
 }
 

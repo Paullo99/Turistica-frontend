@@ -1,4 +1,20 @@
 <body style="padding-top: 135px;">
+
+    <mat-form-field>
+        <input [(ngModel)]="beginDate" matInput [matDatepicker]="beginDatePicker" [min]="minDate" placeholder="Początek wyjazdu">
+        <mat-datepicker-toggle  [for]="beginDatePicker" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker name="beginDatePicker"  #beginDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input [(ngModel)]="endDate" matInput [matDatepicker]="endDatePicker" [min]="minDate" placeholder="Koniec wyjazdu" >
+        <mat-datepicker-toggle  [for]="endDatePicker" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker name="endDatePicker"  #endDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <button id="filter-button" (click)="filter()" mat-button>Filtruj</button>
+    
+
     <mat-card *ngFor="let trip of trips"> 
         <div class="row">
             <div id="img-column" class="column">
