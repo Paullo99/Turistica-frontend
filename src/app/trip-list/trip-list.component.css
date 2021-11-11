@@ -21,8 +21,8 @@ mat-card{
     background: #F2F2F2;
     height: 250px;
     width: 1150px;
-    left: 20%;
-    margin-bottom: 40px;
+    margin: auto;
+    margin-bottom: 30px;
 }
 
 mat-card-title{
