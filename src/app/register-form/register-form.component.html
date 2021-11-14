@@ -12,7 +12,7 @@
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput placeholder="Nazwisko *" formControlName="lastname" >
+                    <input matInput placeholder="Nazwisko *" formControlName="lastName" >
                     <mat-error>
                         To pole nie może być puste!
                     </mat-error>
@@ -47,7 +47,10 @@
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput placeholder="Numer telefonu" >
+                    <input matInput placeholder="Numer telefonu" formControlName="phoneNumber" >
+                    <mat-error>
+                      Wprowadź poprawny numer telefonu!
+                    </mat-error>
                   </mat-form-field>
 
                   <mat-form-field>
@@ -58,12 +61,12 @@
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput type="password" placeholder="Powtórz hasło *" formControlName="password">
+                    <input matInput type="password" placeholder="Powtórz hasło *" formControlName="repeatPassword">
                     <mat-error>
-                      Hasło musi zawierać min. 8 znaków!
+                      Hasła muszą być takie same!
                     </mat-error>
                   </mat-form-field>
-                  <button [disabled]="!registerFormGroup.valid" (click)="register()" mat-button>Zaloguj</button>
+                  <button [disabled]="!registerFormGroup.valid" (click)="register()" mat-button>Zarejestruj</button>
             </form>
             <div style="text-align: left; margin-top: 10px; color: #5f4f4f; font-size:12px">
                 * - pole obowiązkowe

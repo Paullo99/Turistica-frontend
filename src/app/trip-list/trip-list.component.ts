@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Trip } from '../classes/trip';
+import { Trip } from '../interfaces/trip';
 import {TripService } from '../services/trip.service';
 import {formatDate} from '@angular/common';
 

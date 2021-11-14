@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { Trip } from '../classes/trip';
+import { Trip } from '../interfaces/trip';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,6 @@ export class TripService {
   }
 
   public getTripsFilteredByDate(beginDate: string, endDate: string): Observable<Trip[]>{
-    console.log(this.url+"?beginDate=" + beginDate+"&endDate="+endDate);
     return this.httpClient.get<Trip[]>(this.url+"?beginDate=" + beginDate+"&endDate="+endDate);
   }
 
