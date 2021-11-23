@@ -5,8 +5,9 @@
   <div style="font-family:Bahnschrift; padding-right: 30px;">
     <span routerLink="/trips">Przeglądaj oferty</span>
     <span routerLink="/archive-trips">Oferty archiwalne</span>
-    <span routerLink="/login"> Zaloguj się</span>
-    <span routerLink="/register">Utwórz konto</span>
+    <span *ngIf="this.isAuthenticated===false" routerLink="/login"> Zaloguj się</span>
+    <span *ngIf="this.isAuthenticated===false" routerLink="/register">Utwórz konto</span>
+    <span *ngIf="this.isAuthenticated===true" (click)="logout()">Wyloguj</span>
     <span>Kontakt</span>  
   </div>
 </mat-toolbar>

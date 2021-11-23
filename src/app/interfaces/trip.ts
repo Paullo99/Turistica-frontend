@@ -1,7 +1,7 @@
 export interface Trip {
     id: number;
     name: string;
-    tripType: string;
+    tripType: any;
     beginDate: Date;
     endDate: Date;
     pricePerPerson: number;

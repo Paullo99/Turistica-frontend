@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
@@ -22,6 +22,7 @@ import { ArchiveTripListComponent } from './archive-trip-list/archive-trip-list.
 import { TripDetailsComponent } from './trip-details/trip-details.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { HttpInterceptorService } from './services/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: "pl-PL" } ],
+  providers: [{ provide: LOCALE_ID, useValue: "pl-PL" },
+  { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

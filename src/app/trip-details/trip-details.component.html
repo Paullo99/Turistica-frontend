@@ -2,7 +2,7 @@
     <mat-card> 
         <mat-card-title>{{trip?.name}}</mat-card-title>
         <mat-card-content>
-            {{trip?.tripType}} <br><br>
+            {{trip?.tripType.name}} <br><br>
             Data wyjazdu: <b>{{trip?.beginDate}} r.</b> <br><br>
             Powrót: <b>{{trip?.endDate}} r.</b> <br><br>
             Cena: <b>{{trip?.pricePerPerson}} zł/os. </b> <br><br>
@@ -16,9 +16,7 @@
             </div>
   
             
-            <img mat-card-image id="image" [src]="image">
-            <img mat-card-image id="image" [src]="image">
-            <img mat-card-image id="image" [src]="image">
+            <img *ngIf="trip?.exampleImage!=null" mat-card-image id="image" [src]="image">
 
         </mat-card-content>
       </mat-card>
