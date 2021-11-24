@@ -2,3 +2,30 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Bahnschrift", sans-serif; }
+
+.snackbar {
+    width: 500px;
+    height: 60px;
+    font-size: 30px !important;
+    background: #7ac876;
+    color: black;
+  }
+
+  .mat-simple-snackbar {
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 17px !important;
+    margin: auto;
+  }
+
+.snackbar .mat-simple-snackbar-action {
+    background: #68b364;
+    color: black;
+    transition: 0.3s all ease;
+  }
+
+  .snackbar .mat-simple-snackbar-action:hover {
+    background: #6e7980;
+    color: white;
+    transition: 0.3s all ease;
+  }

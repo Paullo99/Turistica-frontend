@@ -1,8 +1,8 @@
 import { Component, ErrorHandler, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
-import {Observable} from 'rxjs';
 import { Router } from '@angular/router';
+import { AppService } from '../services/app.service';
 
 @Component({
   selector: 'app-register-form',
@@ -13,7 +13,7 @@ export class RegisterFormComponent implements OnInit {
 
   registerFormGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router, private appService: AppService) {
     this.registerFormGroup = this.formBuilder.group({
       name: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -34,29 +34,29 @@ export class RegisterFormComponent implements OnInit {
 
   checkPasswords(password: string, repeatPassword: string) {
     return (formGroup: FormGroup) => {
-        let formControl = formGroup.controls[password];
-        let repeatFormControl = formGroup.controls[repeatPassword];
+      let formControl = formGroup.controls[password];
+      let repeatFormControl = formGroup.controls[repeatPassword];
 
-        if (formControl?.value !== repeatFormControl?.value) {
-            repeatFormControl.setErrors({ check: true });
-        } else {
-            repeatFormControl.setErrors(null);
-        }
+      if (formControl?.value !== repeatFormControl?.value) {
+        repeatFormControl.setErrors({ check: true });
+      } else {
+        repeatFormControl.setErrors(null);
+      }
     }
-}
+  }
 
 
-  register(){
+  register() {
     this.userService.insertNewUser(this.registerFormGroup).subscribe(
       (data) => {
-        alert("Rejestracja przebiegła pomyślnie!");
+        this.appService.showSnackBar("Rejestracja przebiegła pomyślnie!");
         this.router.navigate(['']);
       }, (error) => {
-        if(error.status = 409){
-          alert("Konto dla podanego adresu email już istnieje!");
+        if (error.status = 409) {
+          this.appService.showSnackBar("Konto dla podanego adresu email już istnieje!");
         }
-        else{
-          alert("Błąd krytyczny! Spróbuj ponownie.");
+        else {
+          this.appService.showSnackBar("Błąd krytyczny! Spróbuj ponownie.");
         }
       }
     );

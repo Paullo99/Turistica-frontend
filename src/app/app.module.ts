@@ -10,6 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
@@ -54,6 +55,7 @@ import { CreateTripComponent } from './create-trip/create-trip.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: "pl-PL" },
   { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true } ],

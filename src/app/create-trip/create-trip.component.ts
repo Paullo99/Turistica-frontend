@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppService } from '../services/app.service';
 import { TripService } from '../services/trip.service';
 
 @Component({
@@ -13,12 +14,12 @@ export class CreateTripComponent implements OnInit {
 
   createTripFormGroup: FormGroup;
 
-  beginDate : string = "";
-  endDate : string = "";
+  beginDate: string = "";
+  endDate: string = "";
 
   minDate = new Date();
 
-  constructor(private formBuilder: FormBuilder, private tripService: TripService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private tripService: TripService, private router: Router, private appService: AppService) {
     this.createTripFormGroup = this.formBuilder.group({
       name: ['', Validators.required],
       tripType: ['', Validators.required],
@@ -35,17 +36,17 @@ export class CreateTripComponent implements OnInit {
   }
 
   changeMinDate(): void {
-   this.minDate = new Date(formatDate(this.createTripFormGroup.value.beginDate, 'yyyy-MM-dd', 'en'))
+    this.minDate = new Date(formatDate(this.createTripFormGroup.value.beginDate, 'yyyy-MM-dd', 'en'))
   }
 
 
-  createTrip(){
+  createTrip() {
     this.tripService.insertNewTrip(this.createTripFormGroup).subscribe(
       (data) => {
-        alert("Dodano nowy wyjazd! Możesz go znaleźć w zakładce \"Przeglądaj oferty\"");
+        this.appService.showSnackBar("Dodano nowy wyjazd: " + this.createTripFormGroup.value.name);
         this.router.navigate(['/trips']);
       }, (error) => {
-          alert("Błąd krytyczny! Spróbuj ponownie.");
+        this.appService.showSnackBar("Błąd krytyczny! Spróbuj ponownie.");
       }
     );
   }
