@@ -15,7 +15,7 @@
                 {{trip?.description}}
             </div>
             
-            <div *ngIf="trip.map!=null">
+            <div *ngIf="trip?.map!=null">
                 <br><br>
                 Poglądowa mapa wyjazdu:
                 <div [innerHTML] = "trip.map | safeHtml" style="margin: auto;"></div>
