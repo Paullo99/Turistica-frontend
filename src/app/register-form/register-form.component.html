@@ -5,42 +5,42 @@
             <form [formGroup]="registerFormGroup">
 
                 <mat-form-field>
-                    <input matInput placeholder="Imię *" formControlName="name" >
+                    <input matInput placeholder="Imię" formControlName="name" required>
                     <mat-error>
                       To pole nie może być puste!
                     </mat-error>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput placeholder="Nazwisko *" formControlName="lastName" >
+                    <input matInput placeholder="Nazwisko" formControlName="lastName" required>
                     <mat-error>
                         To pole nie może być puste!
                     </mat-error>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput placeholder="Ulica i nr budynku / nr mieszkania *" formControlName="address" >
+                    <input matInput placeholder="Ulica i nr budynku / nr mieszkania" formControlName="address" required>
                     <mat-error>
                         To pole nie może być puste!
                     </mat-error>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput placeholder="Miejscowość *" formControlName="city" >
+                    <input matInput placeholder="Miejscowość" formControlName="city" required>
                     <mat-error>
                         To pole nie może być puste!
                     </mat-error>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput placeholder="Kod pocztowy *" formControlName="postcode" >
+                    <input matInput placeholder="Kod pocztowy" formControlName="postcode" required>
                     <mat-error>
                         To pole nie może być puste!
                     </mat-error>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput placeholder="Email *" formControlName="email" >
+                    <input matInput placeholder="Email" formControlName="email" required>
                     <mat-error>
                       Wprowadź poprawny adres email!
                     </mat-error>
@@ -54,14 +54,14 @@
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput type="password" placeholder="Hasło *" formControlName="password">
+                    <input matInput type="password" placeholder="Hasło" formControlName="password" required>
                     <mat-error>
                       Hasło musi zawierać min. 8 znaków!
                     </mat-error>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput type="password" placeholder="Powtórz hasło *" formControlName="repeatPassword">
+                    <input matInput type="password" placeholder="Powtórz hasło" formControlName="repeatPassword" required>
                     <mat-error>
                       Hasła muszą być takie same!
                     </mat-error>
