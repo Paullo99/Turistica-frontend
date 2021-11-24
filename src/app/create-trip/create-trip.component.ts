@@ -21,10 +21,11 @@ export class CreateTripComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private tripService: TripService, private router: Router) {
     this.createTripFormGroup = this.formBuilder.group({
       name: ['', Validators.required],
+      tripType: ['', Validators.required],
       beginDate: ['', Validators.required],
       endDate: ['', Validators.required],
       pricePerPerson: ['', [Validators.pattern("[0-9]+"), Validators.required]],
-      limit: [''],
+      peopleLimit: [''],
       description: [''],
       map: ['']
     });

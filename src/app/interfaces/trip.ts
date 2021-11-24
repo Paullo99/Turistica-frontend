@@ -6,7 +6,7 @@ export interface Trip {
     endDate: Date;
     pricePerPerson: number;
     enrolledPeople: number;
-    limit: number;
+    peopleLimit: number;
     description: string;
     map: string;
 }

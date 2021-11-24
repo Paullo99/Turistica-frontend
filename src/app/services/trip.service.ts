@@ -40,13 +40,13 @@ export class TripService {
     return this.httpClient.post<any>(this.createTripUrl, 
       {
         name : createTripFormGroup.value.name,  
+        tripType: createTripFormGroup.value.tripType,
         beginDate: createTripFormGroup.value.beginDate,  
         endDate: createTripFormGroup.value.endDate,  
         pricePerPerson: createTripFormGroup.value.pricePerPerson, 
-        limit: createTripFormGroup.value.limit,
+        peopleLimit: createTripFormGroup.value.peopleLimit,
         description: createTripFormGroup.value.description,
         map: createTripFormGroup.value.map 
-      }
-      );
+      });
   }
 }
