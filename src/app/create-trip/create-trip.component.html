@@ -1,0 +1,79 @@
+<body style="padding-top: 135px;">
+    <mat-card>
+        <mat-card-content>
+            <h3>Tworzenie nowego wyjazdu</h3>
+            <form [formGroup]="createTripFormGroup">
+
+                <mat-form-field>
+                    <input matInput placeholder="Nazwa" formControlName="name" required>
+                    <mat-error>
+                      To pole nie może być puste!
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-select placeholder="Typ wyjazdu" required>
+                        <mat-option value="1">
+                          Turystyka górska
+                        </mat-option>
+                        <mat-option value="2">
+                            Turystyka miejska
+                          </mat-option>
+                          <mat-option value="3">
+                            Turystyka morska
+                          </mat-option>
+                      </mat-select>
+                    <mat-error>
+                      To pole nie może być puste!
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <input formControlName="beginDate" matInput [matDatepicker]="beginDatePicker" [min]="minDate" placeholder="Data wyjazdu" required>
+                    <mat-datepicker-toggle  [for]="beginDatePicker" matSuffix ></mat-datepicker-toggle>
+                    <mat-datepicker name="beginDatePicker"  #beginDatePicker></mat-datepicker>
+                    <mat-error>
+                      To pole nie może być puste!
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field >
+                    <input formControlName="endDate" matInput [matDatepicker]="endDatePicker" [min]="minDate" placeholder="Koniec wyjazdu" required>
+                    <mat-datepicker-toggle (focusout)="changeMinDate()"  [for]="endDatePicker" matSuffix></mat-datepicker-toggle>
+                    <mat-datepicker name="endDatePicker"  #endDatePicker></mat-datepicker>
+                    <mat-error>
+                      To pole nie może być puste!
+                    </mat-error>
+                </mat-form-field>
+
+
+                  <mat-form-field>
+                    <input matInput placeholder="Cena za osobę (zł)" formControlName="pricePerPerson" required>
+                    <mat-error *ngIf="createTripFormGroup.controls.pricePerPerson.hasError('required')">
+                        To pole nie może być puste!
+                    </mat-error>
+                    <mat-error *ngIf="createTripFormGroup.controls.pricePerPerson.hasError('pattern')">
+                      Cena musi być liczbą całkowitą!
+                  </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <input matInput placeholder="Limit osób" formControlName="limit" >
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="15" placeholder="Opis wyjazdu" formControlName="description" ></textarea>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="15" placeholder="Mapa do osadzenia (kod HTML)" formControlName="map" ></textarea>
+                  </mat-form-field>
+
+                  <button [disabled]="!createTripFormGroup.valid" (click)="createTrip()" mat-button>Utwórz wyjazd</button>
+            </form>
+            <div style="text-align: left; margin-top: 10px; color: #5f4f4f; font-size:12px">
+                * - pole obowiązkowe
+            </div>
+        </mat-card-content>
+      </mat-card>
+</body>

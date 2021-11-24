@@ -19,6 +19,7 @@ export class AppComponent {
     {
       this.isAuthenticated = true;
     } else {
+      sessionStorage.setItem('token','');
       this.isAuthenticated = false;
     }
   }

@@ -6,6 +6,7 @@ import { TripDetailsComponent } from './trip-details/trip-details.component';
 import { TripListComponent } from './trip-list/trip-list.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { CreateTripComponent } from './create-trip/create-trip.component';
 
 const routes: Routes = [
   { path: 'trips', component: TripListComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'login', component: LoginFormComponent},
   { path: 'register', component: RegisterFormComponent},
   { path: 'trip-details/:id', component: TripDetailsComponent},
+  { path: 'create-trip', component: CreateTripComponent},
 ];
 
 @NgModule({

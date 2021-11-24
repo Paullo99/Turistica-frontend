@@ -9,6 +9,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
@@ -23,6 +24,8 @@ import { TripDetailsComponent } from './trip-details/trip-details.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { HttpInterceptorService } from './services/http-interceptor.service';
+import { SafeHtmlPipe } from './safe-html.pipe';
+import { CreateTripComponent } from './create-trip/create-trip.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
     ArchiveTripListComponent,
     TripDetailsComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    SafeHtmlPipe,
+    CreateTripComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
+    MatSelectModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

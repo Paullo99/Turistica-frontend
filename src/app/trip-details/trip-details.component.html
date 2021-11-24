@@ -14,10 +14,14 @@
             <div id="description">
                 {{trip?.description}}
             </div>
-  
             
-            <img *ngIf="trip?.exampleImage!=null" mat-card-image id="image" [src]="image">
-
+            <div *ngIf="trip.map!=null">
+                <br><br>
+                Poglądowa mapa wyjazdu:
+                <div [innerHTML] = "trip.map | safeHtml" style="margin: auto;"></div>
+            </div>
+           
+        
         </mat-card-content>
       </mat-card>
 </body>

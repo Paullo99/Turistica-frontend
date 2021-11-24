@@ -6,7 +6,7 @@ import { TripService } from '../services/trip.service';
 @Component({
   selector: 'app-trip-details',
   templateUrl: './trip-details.component.html',
-  styleUrls: ['./trip-details.component.css']
+  styleUrls: ['./trip-details.component.css'],
 })
 export class TripDetailsComponent implements OnInit {
   id: number = -1;
@@ -25,8 +25,6 @@ export class TripDetailsComponent implements OnInit {
       if(this.trip.limit === this.trip.enrolledPeople){
         this.limitReached=true;
       }
-      var base64String = this.trip.exampleImage;
-      this.image = 'data:image/jpeg;base64,' + base64String;
     });
    }
 

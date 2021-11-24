@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Trip } from '../interfaces/trip';
 import { TripService } from '../services/trip.service';
 
@@ -21,7 +22,7 @@ export class ArchiveTripListComponent implements OnInit {
     return day !== 0 && day !== 6;
   };
 
-  constructor(private tripService: TripService) {
+  constructor(private tripService: TripService, private router: Router) {
     this.tripService.getArchiveTrips().subscribe(data => {
       this.trips = data;
     });
@@ -30,12 +31,7 @@ export class ArchiveTripListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  test(id:number){
-    console.log(id);
-  }
-
   filter(){
-    console.log("x");
   }
 
 }

@@ -7,8 +7,9 @@
     <span routerLink="/archive-trips">Oferty archiwalne</span>
     <span *ngIf="this.isAuthenticated===false" routerLink="/login"> Zaloguj się</span>
     <span *ngIf="this.isAuthenticated===false" routerLink="/register">Utwórz konto</span>
-    <span *ngIf="this.isAuthenticated===true" (click)="logout()">Wyloguj</span>
     <span>Kontakt</span>  
+    <span *ngIf="this.isAuthenticated===true" (click)="logout()">Wyloguj</span>
+    <span routerLink="/create-trip">Stwórz ofertę wyjazdu</span>
   </div>
 </mat-toolbar>
 
