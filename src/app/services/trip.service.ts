@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Trip } from '../interfaces/trip';
 import { FormGroup } from '@angular/forms';
+import { formatDate } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -41,8 +42,8 @@ export class TripService {
       {
         name : createTripFormGroup.value.name,  
         tripType: createTripFormGroup.value.tripType,
-        beginDate: createTripFormGroup.value.beginDate,  
-        endDate: createTripFormGroup.value.endDate,  
+        beginDate: formatDate(createTripFormGroup.value.beginDate, 'yyyy-MM-dd', 'en'),
+        endDate: formatDate(createTripFormGroup.value.endDate, 'yyyy-MM-dd', 'en'),  
         pricePerPerson: createTripFormGroup.value.pricePerPerson, 
         peopleLimit: createTripFormGroup.value.peopleLimit,
         description: createTripFormGroup.value.description,

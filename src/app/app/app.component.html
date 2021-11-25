@@ -9,7 +9,7 @@
     <span *ngIf="this.isAuthenticated===false" routerLink="/register">Utwórz konto</span>
     <span>Kontakt</span>  
     <span *ngIf="this.isAuthenticated===true" (click)="logout()">Wyloguj</span>
-    <span routerLink="/create-trip">Stwórz ofertę wyjazdu</span>
+    <span *ngIf="this.role==='ROLE_GUIDE'" routerLink="/create-trip">Stwórz ofertę wyjazdu</span>
   </div>
 </mat-toolbar>
 

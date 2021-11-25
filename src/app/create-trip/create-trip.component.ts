@@ -17,7 +17,8 @@ export class CreateTripComponent implements OnInit {
   beginDate: string = "";
   endDate: string = "";
 
-  minDate = new Date();
+  minBeginDate = new Date();
+  minEndDate = new Date();
 
   constructor(private formBuilder: FormBuilder, private tripService: TripService, private router: Router, private appService: AppService) {
     this.createTripFormGroup = this.formBuilder.group({
@@ -36,9 +37,8 @@ export class CreateTripComponent implements OnInit {
   }
 
   changeMinDate(): void {
-    this.minDate = new Date(formatDate(this.createTripFormGroup.value.beginDate, 'yyyy-MM-dd', 'en'))
+    this.minEndDate = new Date(formatDate(this.createTripFormGroup.value.beginDate, 'yyyy-MM-dd', 'en'))
   }
-
 
   createTrip() {
     this.tripService.insertNewTrip(this.createTripFormGroup).subscribe(

@@ -29,7 +29,7 @@
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input formControlName="beginDate" matInput [matDatepicker]="beginDatePicker" [min]="minDate" placeholder="Data wyjazdu" required>
+                    <input formControlName="beginDate" matInput [matDatepicker]="beginDatePicker" [min]="minBeginDate" placeholder="Data wyjazdu" required>
                     <mat-datepicker-toggle  [for]="beginDatePicker" matSuffix ></mat-datepicker-toggle>
                     <mat-datepicker name="beginDatePicker"  #beginDatePicker></mat-datepicker>
                     <mat-error>
@@ -38,7 +38,7 @@
                 </mat-form-field>
 
                 <mat-form-field >
-                    <input formControlName="endDate" matInput [matDatepicker]="endDatePicker" [min]="minDate" placeholder="Koniec wyjazdu" required>
+                    <input formControlName="endDate" matInput [matDatepicker]="endDatePicker" [min]="minEndDate" placeholder="Koniec wyjazdu" required>
                     <mat-datepicker-toggle (focusout)="changeMinDate()"  [for]="endDatePicker" matSuffix></mat-datepicker-toggle>
                     <mat-datepicker name="endDatePicker"  #endDatePicker></mat-datepicker>
                     <mat-error>

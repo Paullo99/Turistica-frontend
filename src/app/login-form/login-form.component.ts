@@ -24,24 +24,28 @@ export class LoginFormComponent implements OnInit {
   }
   ngOnInit(): void {
     sessionStorage.setItem('token', '');
+    sessionStorage.setItem('role', '');
   }
 
   login() {
     let url = 'http://localhost:8080/login';
-    let result = this.httpClient.post(url, {
+    let result = this.httpClient.post<any>(url, {
       email: this.loginFormGroup.value.email,
       password: this.loginFormGroup.value.password
-    }).subscribe(isValid => {
-      if (isValid) {
+    }).subscribe(data => {
+      if (data.isValid === "true") {
         sessionStorage.setItem(
           'token',
           btoa(this.loginFormGroup.value.email + ':' + this.loginFormGroup.value.password)
         );
+        sessionStorage.setItem('role', data.role)
         this.router.navigate(['']);
         this.app.isAuthenticated = true;
+        this.app.role = data.role
       } else {
         this.appService.showSnackBar("Niepoprawny login/hasło")
         this.app.isAuthenticated = false;
+        this.app.role = ""
       }
     });
   }
