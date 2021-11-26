@@ -38,7 +38,7 @@ import { CreateTripComponent } from './create-trip/create-trip.component';
     LoginFormComponent,
     RegisterFormComponent,
     SafeHtmlPipe,
-    CreateTripComponent
+    CreateTripComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +57,7 @@ import { CreateTripComponent } from './create-trip/create-trip.component';
     ReactiveFormsModule,
     MatSnackBarModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: "pl-PL" },
+  providers: [{ provide: LOCALE_ID, useValue: "en-EN" },
   { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true } ],
   bootstrap: [AppComponent]
 })

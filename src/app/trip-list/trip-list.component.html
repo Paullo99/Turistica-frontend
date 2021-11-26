@@ -26,7 +26,7 @@
                 <mat-card-title routerLink="/trip-details/{{trip.id}}">{{trip.name}}</mat-card-title>
                 <mat-card-subtitle>{{trip.tripType}}</mat-card-subtitle></div>
                 <mat-card-content>
-                    Data wyjazdu: <b>{{trip.beginDate}} r. - {{trip.endDate}} r.</b> <br><br>
+                    Data wyjazdu: <b>{{ trip.beginDate | date: 'dd.MM.yyyy' }} r. - {{trip.endDate | date: 'dd.MM.yyyy'}} r.</b> <br><br>
                     Cena: <b>{{trip.pricePerPerson}} zł/os. </b>
                 </mat-card-content>
           </div>
