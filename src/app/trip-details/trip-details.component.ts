@@ -22,6 +22,7 @@ export class TripDetailsComponent implements OnInit {
 
     this.tripService.getTripById(this.id).subscribe(data => {
       this.trip = data;
+      console.log("x" + this.trip.map + "x")
       if(this.trip.peopleLimit === this.trip.enrolledPeople){
         this.limitReached=true;
       }

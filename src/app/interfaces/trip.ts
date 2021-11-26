@@ -8,5 +8,5 @@ export interface Trip {
     enrolledPeople: number;
     peopleLimit: number;
     description: string;
-    map: string;
+    map: any;
 }
