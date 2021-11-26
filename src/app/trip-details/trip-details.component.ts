@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵsetComponentScope } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AppComponent } from '../app/app.component';
+import { EnrollmentInfo } from '../interfaces/enrollment-info';
 import { Trip } from '../interfaces/trip';
 import { TripService } from '../services/trip.service';
 
@@ -10,23 +12,42 @@ import { TripService } from '../services/trip.service';
 })
 export class TripDetailsComponent implements OnInit {
   id: number = -1;
-  private sub: any;
   trip!: Trip;
+  enrollmentInfo!: EnrollmentInfo;
+  isEnrolled: boolean = false;
+  role: string | any = "";
   limitReached: boolean = false;
   image: any;
 
-  constructor(private route: ActivatedRoute, private tripService: TripService) {
-    this.sub = this.route.params.subscribe(params => {
+  constructor(private route: ActivatedRoute, private tripService: TripService, private app: AppComponent) {
+    this.route.params.subscribe(params => {
       this.id = params['id'];
    });
 
     this.tripService.getTripById(this.id).subscribe(data => {
       this.trip = data;
-      console.log("x" + this.trip.map + "x")
       if(this.trip.peopleLimit === this.trip.enrolledPeople){
         this.limitReached=true;
       }
     });
+    this.tripService.getEnrollmentInfo(this.id).subscribe(data =>{
+      this.enrollmentInfo = data;
+      this.isEnrolled = this.enrollmentInfo.enrolled;
+    })
+    this.role = sessionStorage.getItem('role')
+    console.log(this.app.role)
+   }
+
+   submit(){
+
+     this.tripService.enrollToATrip(this.id).subscribe(
+       data=> {
+        this.tripService.getEnrollmentInfo(this.id).subscribe(data =>{
+          this.enrollmentInfo = data;
+          this.isEnrolled = this.enrollmentInfo.enrolled;
+        })
+       }
+     );
    }
 
   ngOnInit(): void {

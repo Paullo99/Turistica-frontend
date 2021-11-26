@@ -6,9 +6,14 @@ body{
 mat-card{
     position: relative;
     background: #F2F2F2;
-    width: 1150px;
-    transform: translate(30%, 0%);
+    min-width: 800px;
+    max-width: 1150px;
+    /* transform: translate(30%, 0%); */
     padding-top: 40px;
+    height: auto;
+    margin-left:auto;
+    margin-right:auto;
+    vertical-align:middle;  
 }
 
 mat-card-title{
@@ -26,6 +31,7 @@ mat-card-content{
     padding-top: 10px;
     font-size: 23px;
     font-family: "Bahnschrift";
+    height: auto;
 }
 
 img{
@@ -44,3 +50,19 @@ img{
     width: 60%;
   }
   
+button{
+    background: #b1b1b1;
+    color: black;
+    transition: 0.6s all ease;
+    float: left;
+    margin-left: 10px;
+    height: auto;
+    margin-top: -50px;
+}
+
+button:hover{
+    background: #6b6b6b;
+    color: white;
+    transition: 0.6s all ease;
+    font-size: 17px;
+}
