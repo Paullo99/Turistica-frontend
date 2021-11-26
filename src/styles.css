@@ -13,7 +13,7 @@ body { margin: 0; font-family: Roboto, "Bahnschrift", sans-serif; }
 
   .mat-simple-snackbar {
     padding-top: 5px;
-    padding-left: 10px;
+    padding-left: 5px;
     font-size: 17px !important;
     margin: auto;
   }
@@ -23,6 +23,7 @@ body { margin: 0; font-family: Roboto, "Bahnschrift", sans-serif; }
     color: black;
     transition: 0.3s all ease;
     margin:auto;
+    margin-left: 15px;
   }
 
   .snackbar .mat-simple-snackbar-action:hover {

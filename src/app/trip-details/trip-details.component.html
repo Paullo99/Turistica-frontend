@@ -14,7 +14,7 @@
             Powrót: <b>{{trip?.endDate}} r.</b> <br><br>
             Cena: <b>{{trip?.pricePerPerson}} zł/os. </b> <br><br>
             Limit osób: <b>{{enrollmentInfo?.enrolledPeople}} / {{trip?.peopleLimit}} 
-            <div id="warning-message" *ngIf="limitReached">
+            <div id="warning-message" *ngIf="enrollmentInfo?.enrolledPeople === trip?.peopleLimit">
                 BRAK WOLNYCH MIEJSC!
             </div> </b>
             <br><br><br>

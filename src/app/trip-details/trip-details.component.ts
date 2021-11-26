@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from '../app/app.component';
 import { EnrollmentInfo } from '../interfaces/enrollment-info';
 import { Trip } from '../interfaces/trip';
+import { AppService } from '../services/app.service';
 import { TripService } from '../services/trip.service';
 
 @Component({
@@ -19,16 +20,13 @@ export class TripDetailsComponent implements OnInit {
   limitReached: boolean = false;
   image: any;
 
-  constructor(private route: ActivatedRoute, private tripService: TripService, private app: AppComponent) {
+  constructor(private route: ActivatedRoute, private tripService: TripService, private app: AppComponent, private appService: AppService) {
     this.route.params.subscribe(params => {
       this.id = params['id'];
    });
 
     this.tripService.getTripById(this.id).subscribe(data => {
       this.trip = data;
-      if(this.trip.peopleLimit === this.trip.enrolledPeople){
-        this.limitReached=true;
-      }
     });
     this.tripService.getEnrollmentInfo(this.id).subscribe(data =>{
       this.enrollmentInfo = data;
@@ -46,6 +44,15 @@ export class TripDetailsComponent implements OnInit {
           this.enrollmentInfo = data;
           this.isEnrolled = this.enrollmentInfo.enrolled;
         })
+       }, (error)=>
+       {
+         if(error.status=409){
+           this.appService.showSnackBar("Limit uczestników został już osiągnięty!")
+         }
+         else{
+           this.appService.showSnackBar("Błąd krytyczny! Spróbuj ponownie.")
+         }
+           
        }
      );
    }
