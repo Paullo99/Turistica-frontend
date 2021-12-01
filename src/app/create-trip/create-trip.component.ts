@@ -27,7 +27,7 @@ export class CreateTripComponent implements OnInit {
       beginDate: ['', Validators.required],
       endDate: ['', Validators.required],
       pricePerPerson: ['', [Validators.pattern("[0-9]+"), Validators.required]],
-      peopleLimit: [''],
+      peopleLimit: ['', Validators.required],
       description: [''],
       map: ['']
     });

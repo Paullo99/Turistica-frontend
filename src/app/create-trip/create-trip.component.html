@@ -58,7 +58,10 @@
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput placeholder="Limit osób" formControlName="peopleLimit" >
+                    <input matInput placeholder="Limit osób" formControlName="peopleLimit" required>
+                    <mat-error>
+                      To pole nie może być puste!
+                    </mat-error>
                   </mat-form-field>
 
                   <mat-form-field>
