@@ -1,0 +1,20 @@
+<body style="padding-top: 135px;">  
+
+    <mat-card *ngFor="let trip of trips"> 
+        <div class="row">
+            <div id="img-column" class="column">
+                <img *ngIf="trip.tripType == 'Turystyka górska'" src="./assets/images/mountains.png">
+                <img *ngIf="trip.tripType == 'Turystyka miejska'" src="./assets/images/city.png">
+                <img *ngIf="trip.tripType == 'Turystyka morska'" src="./assets/images/sea.png">
+            </div>
+            <div class="column"> 
+                <mat-card-title routerLink="/trip-details/{{trip.id}}">{{trip.name}}</mat-card-title>
+                <mat-card-subtitle>{{trip.tripType}}</mat-card-subtitle></div>
+                <mat-card-content>
+                    Data wyjazdu: <b>{{ trip.beginDate | date: 'dd.MM.yyyy' }} r. - {{trip.endDate | date: 'dd.MM.yyyy'}} r.</b> <br><br>
+                    Cena: <b>{{trip.pricePerPerson}} zł/os. </b>
+                </mat-card-content>
+          </div>
+      </mat-card>
+
+</body>
