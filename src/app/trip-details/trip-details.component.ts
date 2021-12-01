@@ -15,12 +15,15 @@ export class TripDetailsComponent implements OnInit {
   id: number = -1;
   trip!: Trip;
   enrollmentInfo!: EnrollmentInfo;
+  today: Date;
   isEnrolled: boolean = false;
   role: string | any = "";
   limitReached: boolean = false;
-  image: any;
 
   constructor(private route: ActivatedRoute, private tripService: TripService, private app: AppComponent, private appService: AppService) {
+    this.today = new Date();
+    this.today.setDate(new Date().getDate() - 1);
+    
     this.route.params.subscribe(params => {
       this.id = params['id'];
    });
@@ -36,6 +39,13 @@ export class TripDetailsComponent implements OnInit {
     console.log(this.app.role)
    }
 
+   isArchive(trip: Trip): boolean{
+      if(new Date(trip?.beginDate) < this.today){
+        return true;
+      }
+      return false;
+   }
+
    submit(){
 
      this.tripService.enrollToATrip(this.id).subscribe(
@@ -43,6 +53,10 @@ export class TripDetailsComponent implements OnInit {
         this.tripService.getEnrollmentInfo(this.id).subscribe(data =>{
           this.enrollmentInfo = data;
           this.isEnrolled = this.enrollmentInfo.enrolled;
+          if(this.isEnrolled)
+            this.appService.showSnackBar("Zapisano na wyjazd!")
+          else
+            this.appService.showSnackBar("Wypisano z wyjazdu!")
         })
        }, (error)=>
        {

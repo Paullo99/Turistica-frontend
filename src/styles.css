@@ -22,8 +22,7 @@ body { margin: 0; font-family: Roboto, "Bahnschrift", sans-serif; }
     background: #68b364;
     color: black;
     transition: 0.3s all ease;
-    margin:auto;
-    margin-left: 15px;
+    margin-right: 5px;
   }
 
   .snackbar .mat-simple-snackbar-action:hover {
