@@ -10,13 +10,14 @@ import * as CryptoJS from 'crypto-js';
 export class UserService {
 
   private createNewUserUrl: string;
+  private loginUrl: string;
 
   constructor(private httpClient: HttpClient) {
     this.createNewUserUrl = "http://localhost:8080/register";
+    this.loginUrl = "http://localhost:8080/login";
   }
 
   public insertNewUser(registerFormGroup: FormGroup){
-    this.encryptPassword(registerFormGroup.value.password);
     return this.httpClient.post<any>(this.createNewUserUrl, 
       {
         email : registerFormGroup.value.email, 
@@ -27,8 +28,15 @@ export class UserService {
         city : registerFormGroup.value.city,
         postcode : registerFormGroup.value.postcode,
         phoneNumber : registerFormGroup.value.phoneNumber     
-      }
-      );
+      });
+  }
+
+  public loginUser(loginFormGroup: FormGroup){
+    return this.httpClient.post<any>(this.loginUrl, 
+      {
+        email: loginFormGroup.value.email,
+        password: this.encryptPassword(loginFormGroup.value.password)
+      });
   }
 
   encryptPassword(password: string){

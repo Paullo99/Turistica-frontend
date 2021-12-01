@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { AppComponent } from '../app/app.component';
 import { AppService } from '../services/app.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -16,7 +17,8 @@ export class LoginFormComponent implements OnInit {
   loginFormGroup: FormGroup;
 
 
-  constructor(private formBuilder: FormBuilder, private httpClient: HttpClient, private router: Router, private app: AppComponent, private appService: AppService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, 
+    private app: AppComponent, private appService: AppService, private userService: UserService) {
     this.loginFormGroup = this.formBuilder.group({
       email: ['', [Validators.email, Validators.required]],
       password: ['', Validators.required]
@@ -28,15 +30,12 @@ export class LoginFormComponent implements OnInit {
   }
 
   login() {
-    let url = 'http://localhost:8080/login';
-    let result = this.httpClient.post<any>(url, {
-      email: this.loginFormGroup.value.email,
-      password: this.loginFormGroup.value.password
-    }).subscribe(data => {
+    this.userService.loginUser(this.loginFormGroup)
+    .subscribe(data => {
       if (data.isValid === "true") {
         sessionStorage.setItem(
           'token',
-          btoa(this.loginFormGroup.value.email + ':' + this.loginFormGroup.value.password)
+          btoa(this.loginFormGroup.value.email + ':' + this.userService.encryptPassword(this.loginFormGroup.value.password))
         );
         sessionStorage.setItem('role', data.role)
         this.router.navigate(['']);
