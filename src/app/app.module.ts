@@ -27,6 +27,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { HttpInterceptorService } from './services/http-interceptor.service';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { CreateTripComponent } from './create-trip/create-trip.component';
+import { EditTripComponent } from './edit-trip/edit-trip.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { CreateTripComponent } from './create-trip/create-trip.component';
     RegisterFormComponent,
     SafeHtmlPipe,
     CreateTripComponent,
+    EditTripComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { CreateTripComponent } from './create-trip/create-trip.component';
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
+    MatDialogModule,
     MatSelectModule,
     HttpClientModule,
     FormsModule,

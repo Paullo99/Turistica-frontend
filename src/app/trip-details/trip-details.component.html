@@ -5,6 +5,7 @@
             <button mat-button>
                 <span *ngIf="!this.isEnrolled&&this.role==='ROLE_USER'&&!isArchive(trip)" (click)="submit()">Chcę wziąć udział!</span>
                 <span *ngIf="this.isEnrolled&&this.role==='ROLE_USER'&&!isArchive(trip)" (click)="submit()">Wypisz mnie z wyjazdu</span>  
+                <span *ngIf="this.role==='ROLE_GUIDE'" (click)="edit(trip)">Edytuj</span>
             </button>
         </div>
         <br>
@@ -19,7 +20,9 @@
             </div> </b>
             <br><br><br>
             <div id="description">
-                {{trip?.description}}
+            <span style="white-space: pre-wrap" >
+            {{trip?.description}}
+            </span>
             </div>
             
             <div *ngIf="trip?.map">

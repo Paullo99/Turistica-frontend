@@ -18,6 +18,8 @@ export class TripService {
 
   private specificTripUrl = "http://localhost:8080/trip-details/";
 
+  private editTripUrl = "http://localhost:8080/edit-trip";
+
   private createTripUrl = "http://localhost:8080/create-trip";
 
   private enrollTripUrl = "http://localhost:8080/trips/enroll?tripId=";
@@ -39,6 +41,10 @@ export class TripService {
 
   public getTripById(id:any): Observable<Trip>{
     return this.httpClient.get<Trip>(this.specificTripUrl + id);
+  }
+
+  public editTrip(trip: Trip){
+    return this.httpClient.put<any>(this.editTripUrl, trip);
   }
 
   public insertNewTrip(createTripFormGroup: FormGroup){

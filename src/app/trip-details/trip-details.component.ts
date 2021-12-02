@@ -1,6 +1,7 @@
 import { Component, OnInit, ɵɵsetComponentScope } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { AppComponent } from '../app/app.component';
+import { EditTripComponent } from '../edit-trip/edit-trip.component';
 import { EnrollmentInfo } from '../interfaces/enrollment-info';
 import { Trip } from '../interfaces/trip';
 import { AppService } from '../services/app.service';
@@ -20,7 +21,11 @@ export class TripDetailsComponent implements OnInit {
   role: string | any = "";
   limitReached: boolean = false;
 
-  constructor(private route: ActivatedRoute, private tripService: TripService, private app: AppComponent, private appService: AppService) {
+  constructor(
+    private route: ActivatedRoute, 
+    private tripService: TripService, 
+    private appService: AppService,
+    private matDialog: MatDialog) {
     this.today = new Date();
     this.today.setDate(new Date().getDate() - 1);
     
@@ -30,13 +35,13 @@ export class TripDetailsComponent implements OnInit {
 
     this.tripService.getTripById(this.id).subscribe(data => {
       this.trip = data;
+      this.trip.description = this.trip.description.split('\r').join('\n')
     });
     this.tripService.getEnrollmentInfo(this.id).subscribe(data =>{
       this.enrollmentInfo = data;
       this.isEnrolled = this.enrollmentInfo.enrolled;
     })
     this.role = sessionStorage.getItem('role')
-    console.log(this.app.role)
    }
 
    isArchive(trip: Trip): boolean{
@@ -60,7 +65,7 @@ export class TripDetailsComponent implements OnInit {
         })
        }, (error)=>
        {
-         if(error.status=409){
+         if(error.status==409){
            this.appService.showSnackBar("Limit uczestników został już osiągnięty!")
          }
          else{
@@ -69,6 +74,12 @@ export class TripDetailsComponent implements OnInit {
            
        }
      );
+   }
+
+   edit(tripToSend: Trip){
+      const dialogRef = this.matDialog.open(EditTripComponent, {
+        data: tripToSend,
+      });
    }
 
   ngOnInit(): void {
