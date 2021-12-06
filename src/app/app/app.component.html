@@ -3,13 +3,17 @@
     <img src="./assets/images/logo_turistica.png" width="120px" style="padding-top: 10px;" routerLink="">
   </div>
   <div style="font-family:Bahnschrift; padding-right: 30px;">
-    <span routerLink="/trips">Przeglądaj oferty</span>
-    <span routerLink="/archive-trips">Oferty archiwalne</span>
-    <span *ngIf="this.isAuthenticated===false" routerLink="/login"> Zaloguj się</span>
-    <span *ngIf="this.isAuthenticated===false" routerLink="/register">Utwórz konto</span>
-    <span>Kontakt</span>  
-    <span *ngIf="this.isAuthenticated===true" (click)="logout()">Wyloguj</span>
-    <span *ngIf="this.role==='ROLE_GUIDE'" routerLink="/create-trip">Stwórz ofertę wyjazdu</span>
+    <button mat-button [matMenuTriggerFor]="menu" >O nas</button>
+    <mat-menu #menu="matMenu" xPosition="before">
+      <button mat-menu-item (click)="openInfoGeneralDialog()">Info</button>
+      <button mat-menu-item (click)="openInfoPaymentDialog()">Płatności</button>
+    </mat-menu>
+    <button mat-button routerLink="/trips">Przeglądaj oferty</button>
+    <button mat-button routerLink="/archive-trips">Oferty archiwalne</button>
+    <button mat-button *ngIf="this.isAuthenticated===false" routerLink="/login"> Zaloguj się</button>
+    <button mat-button *ngIf="this.isAuthenticated===false" routerLink="/register">Utwórz konto</button>
+    <button mat-button *ngIf="this.isAuthenticated===true" (click)="logout()">Wyloguj</button>
+    <button mat-button *ngIf="this.role==='ROLE_GUIDE'" routerLink="/create-trip">Stwórz ofertę wyjazdu</button>
   </div>
 </mat-toolbar>
 

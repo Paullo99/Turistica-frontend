@@ -1,6 +1,6 @@
 import { Component, OnInit, ɵɵsetComponentScope } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EditTripComponent } from '../edit-trip/edit-trip.component';
 import { EnrollmentInfo } from '../interfaces/enrollment-info';
 import { Trip } from '../interfaces/trip';
@@ -25,7 +25,8 @@ export class TripDetailsComponent implements OnInit {
     private route: ActivatedRoute, 
     private tripService: TripService, 
     private appService: AppService,
-    private matDialog: MatDialog) {
+    private matDialog: MatDialog,
+    private router: Router) {
     this.today = new Date();
     this.today.setDate(new Date().getDate() - 1);
     
@@ -79,6 +80,14 @@ export class TripDetailsComponent implements OnInit {
    edit(tripToSend: Trip){
       const dialogRef = this.matDialog.open(EditTripComponent, {
         data: tripToSend,
+      });
+      dialogRef.afterClosed().subscribe(data =>{
+        if(!data){
+          this.tripService.getTripById(this.id).subscribe(data => {
+            this.trip = data;
+            this.trip.description = this.trip.description.split('\r').join('\n');
+          })
+        }
       });
    }
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { InfoGeneralComponent } from '../info-general/info-general.component';
+import { InfoPaymentComponent } from '../info-payment/info-payment.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +14,7 @@ export class AppComponent {
   public isAuthenticated : boolean;
   public role: any;
 
-  constructor(private router: Router){
+  constructor(private router: Router, private matDialog: MatDialog){
     this.isAuthenticated = false;
     this.role = sessionStorage.getItem('role');
   }
@@ -38,6 +41,14 @@ export class AppComponent {
 
   authenticated(){
     return this.isAuthenticated;
+  }
+
+  openInfoPaymentDialog(){
+    this.matDialog.open(InfoPaymentComponent)
+  }
+
+  openInfoGeneralDialog(){
+    this.matDialog.open(InfoGeneralComponent)
   }
 
 }

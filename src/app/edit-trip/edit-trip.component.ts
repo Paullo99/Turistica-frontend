@@ -26,7 +26,6 @@ export class EditTripComponent implements OnInit {
   ngOnInit(): void {
     this.description = this.data.description;
     this.map = this.data.map;
-    console.log(this.data.id)
   }
 
   submit(){
@@ -39,6 +38,7 @@ export class EditTripComponent implements OnInit {
   }
 
   cancel(){
+    this.description = this.data.description;
 
   }
 
