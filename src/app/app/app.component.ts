@@ -39,6 +39,10 @@ export class AppComponent {
     this.router.navigate(['']);
   }
 
+  changePassword(){
+    
+  }
+
   authenticated(){
     return this.isAuthenticated;
   }

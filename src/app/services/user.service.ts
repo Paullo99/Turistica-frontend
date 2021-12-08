@@ -9,12 +9,36 @@ import * as CryptoJS from 'crypto-js';
 })
 export class UserService {
 
-  private createNewUserUrl: string;
-  private loginUrl: string;
+  private createNewUserUrl: string = "http://localhost:8080/register";
+  private loginUrl: string = "http://localhost:8080/login";
+  private getUsersUrl: string = "http://localhost:8080/user-list";
+  private addNewGuideOrAdminUrl: string = "http://localhost:8080/add-user";
+  private changePasswordUrl: string = "http://localhost:8080/change-password";
 
-  constructor(private httpClient: HttpClient) {
-    this.createNewUserUrl = "http://localhost:8080/register";
-    this.loginUrl = "http://localhost:8080/login";
+  constructor(private httpClient: HttpClient) { }
+
+  public getUsers(){
+    return this.httpClient.get<any>(this.getUsersUrl);
+  }
+
+  public changePassowrd(changePasswordFormGroup: FormGroup){
+    return this.httpClient.put<any>(this.changePasswordUrl, 
+      {
+        oldPassword : this.encryptPassword(changePasswordFormGroup.value.oldPassword),
+        newPassword : this.encryptPassword(changePasswordFormGroup.value.newPassword)
+      });
+  }
+
+
+  public addNewGuideOrAdmin(addNewUserFormGroup: FormGroup){
+    return this.httpClient.post<any>(this.addNewGuideOrAdminUrl, 
+      {
+        email : addNewUserFormGroup.value.email, 
+        name : addNewUserFormGroup.value.name,
+        lastName : addNewUserFormGroup.value.lastName,
+        phoneNumber : addNewUserFormGroup.value.phoneNumber,
+        role: addNewUserFormGroup.value.role 
+      });
   }
 
   public insertNewUser(registerFormGroup: FormGroup){

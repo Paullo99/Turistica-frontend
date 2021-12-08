@@ -28,6 +28,7 @@ img{
     height: 50px;
     color:#333333;
     margin-right: 1rem;
+    font-weight: 550;
 }
 
 .mat-button:hover, .mat-menu-item:hover{

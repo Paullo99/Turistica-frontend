@@ -3,17 +3,24 @@
     <img src="./assets/images/logo_turistica.png" width="120px" style="padding-top: 10px;" routerLink="">
   </div>
   <div style="font-family:Bahnschrift; padding-right: 30px;">
-    <button mat-button [matMenuTriggerFor]="menu" >O nas</button>
+    <button *ngIf="this.role!='ROLE_ADMIN'" mat-button [matMenuTriggerFor]="menu" >O nas</button>
     <mat-menu #menu="matMenu" xPosition="before">
       <button mat-menu-item (click)="openInfoGeneralDialog()">Info</button>
       <button mat-menu-item (click)="openInfoPaymentDialog()">Płatności</button>
     </mat-menu>
-    <button mat-button routerLink="/trips">Przeglądaj oferty</button>
-    <button mat-button routerLink="/archive-trips">Oferty archiwalne</button>
+    <button mat-button *ngIf="this.role!='ROLE_ADMIN'" routerLink="/trips">Przeglądaj oferty</button>
+    <button mat-button *ngIf="this.role!='ROLE_ADMIN'" routerLink="/archive-trips">Oferty archiwalne</button>
     <button mat-button *ngIf="this.isAuthenticated===false" routerLink="/login"> Zaloguj się</button>
-    <button mat-button *ngIf="this.isAuthenticated===false" routerLink="/register">Utwórz konto</button>
-    <button mat-button *ngIf="this.isAuthenticated===true" (click)="logout()">Wyloguj</button>
+    <button mat-button *ngIf="this.isAuthenticated===false" routerLink="/register">Zarejestruj się</button>
     <button mat-button *ngIf="this.role==='ROLE_GUIDE'" routerLink="/create-trip">Stwórz ofertę wyjazdu</button>
+    <button mat-button *ngIf="this.role==='ROLE_ADMIN'" routerLink="/add-user">Dodaj nowe konto</button>
+    <button mat-button *ngIf="this.role==='ROLE_ADMIN'" routerLink="/user-list">Zarządzaj użytkownikami</button>
+    <button mat-button *ngIf="this.isAuthenticated===true" (click)="changePassword()" routerLink="/change-password">Zmień hasło</button>
+    <button mat-button *ngIf="this.isAuthenticated===true" (click)="logout()">Wyloguj</button>
+
+   
+    <!-- <button mat-button (click)="logout()"><b>Wyloguj</b></button> -->
+    
   </div>
 </mat-toolbar>
 

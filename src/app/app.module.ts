@@ -11,6 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
@@ -31,6 +32,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import { InfoPaymentComponent } from './info-payment/info-payment.component';
 import { InfoGeneralComponent } from './info-general/info-general.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +50,9 @@ import { InfoGeneralComponent } from './info-general/info-general.component';
     EditTripComponent,
     InfoPaymentComponent,
     InfoGeneralComponent,
+    UserListComponent,
+    AddUserComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +65,7 @@ import { InfoGeneralComponent } from './info-general/info-general.component';
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
+    MatTableModule,
     MatDialogModule,
     MatSelectModule,
     MatMenuModule,
