@@ -12,6 +12,7 @@ import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
@@ -35,6 +36,8 @@ import { InfoGeneralComponent } from './info-general/info-general.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     UserListComponent,
     AddUserComponent,
     ChangePasswordComponent,
+    EditUserComponent,
+    DeleteUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +74,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     MatDialogModule,
     MatSelectModule,
     MatMenuModule,
+    MatIconModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

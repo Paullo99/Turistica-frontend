@@ -3,17 +3,21 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import * as CryptoJS from 'crypto-js';
+import { UserForAdmin } from '../classes/user-for-admin';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private createNewUserUrl: string = "http://localhost:8080/register";
-  private loginUrl: string = "http://localhost:8080/login";
-  private getUsersUrl: string = "http://localhost:8080/user-list";
-  private addNewGuideOrAdminUrl: string = "http://localhost:8080/add-user";
-  private changePasswordUrl: string = "http://localhost:8080/change-password";
+  private createNewUserUrl: string = environment.apiURL+"/register";
+  private loginUrl: string = environment.apiURL+"/login";
+  private getUsersUrl: string = environment.apiURL+"/user-list";
+  private addNewGuideOrAdminUrl: string = environment.apiURL+"/add-user";
+  private editUserUrl: string = environment.apiURL+"/edit-user";
+  private deleteUserUrl: string = environment.apiURL+"/delete-user/";
+  private changePasswordUrl: string = environment.apiURL+"/change-password";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -41,6 +45,14 @@ export class UserService {
       });
   }
 
+  public editUser(user: UserForAdmin){
+    return this.httpClient.put<any>(this.editUserUrl, user);
+  }
+
+  public deleteUser(userId: number){
+    return this.httpClient.delete<any>(this.deleteUserUrl + userId);
+  }
+
   public insertNewUser(registerFormGroup: FormGroup){
     return this.httpClient.post<any>(this.createNewUserUrl, 
       {
@@ -65,7 +77,6 @@ export class UserService {
 
   encryptPassword(password: string){
     let encryptedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-    console.log(encryptedPassword);
     return encryptedPassword;
   }
 }

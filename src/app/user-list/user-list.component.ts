@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserForAdmin } from '../classes/user-for-admin';
+import { DeleteUserComponent } from '../delete-user/delete-user.component';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 import { AppService } from '../services/app.service';
 import { UserService } from '../services/user.service';
 
@@ -12,7 +14,7 @@ import { UserService } from '../services/user.service';
 export class UserListComponent implements OnInit {
 
   users: UserForAdmin[] = [];
-  columnsToDisplay = ['name', 'lastName', 'email', 'role', 'delete', 'edit'];
+  columnsToDisplay = ['name', 'lastName', 'email', 'phoneNumber', 'role',  'edit', 'delete'];
   constructor(
     private userService: UserService,
     private dialog: MatDialog,
@@ -35,45 +37,38 @@ export class UserListComponent implements OnInit {
     }
   }
 
-  delete() {
-    // const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
-    //   data: { title: 'Usunąć wybranego użytkownika?' },
-    // });
+  delete(user: UserForAdmin) {
+    const dialogRef = this.dialog.open(DeleteUserComponent);
 
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   if (result) {
-    //     this.usersList = this.usersList.filter(
-    //       (userInList) => userInList !== user
-    //     );
-    //     this.userService.deleteUser(user.id!).subscribe((response) => {
-    //       if (response == 200) {
-    //         this.snackBar.open('Użytkownik został usunięty!', 'Ok', {
-    //           duration: 3000,
-    //         });
-    //       }
-    //     });
-    //   }
-    // });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.userService.deleteUser(user.id!).subscribe((response) => {
+            this.users = this.users.filter((u) => u !== user);
+            this.appService.showSnackBar("Użytkownik " + user.email + " został usunięty.")
+        });
+      }
+    });
   }
 
-  edit() {
-    // const userCopy = { ...user };
+  edit(user: UserForAdmin) {
+    const userCopy = { ...user };
 
-    // const dialogRef = this.dialog.open(EditUserDialogComponent, {
-    //   data: { title: 'Edycja wybranego użytkownika', user: user },
-    // });
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   if (result) {
-    //   } else {
-    //     this.usersList = this.usersList.map((userInList) => {
-    //       if (userInList.id == userCopy.id) {
-    //         return userCopy;
-    //       } else {
-    //         return userInList;
-    //       }
-    //     });
-    //   }
-    // });
+    const dialogRef = this.dialog.open(EditUserComponent, {
+      data: { user: user },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+      } else {
+        this.users = this.users.map((userInList) => {
+          if (userInList.id == userCopy.id) {
+            return userCopy;
+          } else {
+            return userInList;
+          }
+        });
+      }
+    });
   }
 
 }
+

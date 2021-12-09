@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>Edycja użytkownika</h2>
+<mat-dialog-content>
+    <mat-form-field appearance="fill">
+        <mat-label>Imię</mat-label>
+        <input matInput type="text" [(ngModel)]="data.user.name" required/>
+    </mat-form-field><br />
+
+    <mat-form-field appearance="fill">
+        <mat-label>Nazwisko</mat-label>
+        <input matInput type="text" [(ngModel)]="data.user.lastName" required/>
+    </mat-form-field><br />
+
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" [(ngModel)]="data.user.email" required/>
+    </mat-form-field><br />
+
+    <mat-form-field appearance="fill">
+        <mat-label>Numer telefonu</mat-label>
+        <input matInput type="text" [(ngModel)]="data.user.phoneNumber"/>
+    </mat-form-field><br />
+
+    <mat-form-field>
+        <mat-select placeholder="Rola użytkownika" [(ngModel)]="data.user.role" required>
+            <mat-option value="ROLE_GUIDE">
+              Przewodnik
+            </mat-option>
+            <mat-option value="ROLE_ADMIN">
+                Administrator
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions style="justify-content: center;">
+    <button mat-button [mat-dialog-close]>Anuluj</button>
+    <button mat-button [mat-dialog-close]="true" (click)="submit()"> Zapisz</button>
+</mat-dialog-actions>

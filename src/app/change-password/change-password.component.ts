@@ -43,8 +43,13 @@ export class ChangePasswordComponent implements OnInit {
   changePassword(){
     this.userService.changePassowrd(this.changePasswordFormGroup).subscribe((data)=>
     {
-        this.appService.showSnackBar("Hasło zostało zmienione!")
-        this.router.navigate([''])
+      let email = atob(sessionStorage.getItem('token')!).split(':')[0];
+      sessionStorage.setItem(
+        'token',
+        btoa(email + ':' + this.userService.encryptPassword(this.changePasswordFormGroup.value.newPassword))
+      );
+      this.appService.showSnackBar("Hasło zostało zmienione!")
+      this.router.navigate([''])
     }, (error)=> {
       if(error.status==409){
         this.appService.showSnackBar("Stare hasło jest niepoprawne! Spróbuj ponownie")

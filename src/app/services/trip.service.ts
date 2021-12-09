@@ -6,24 +6,25 @@ import { Trip } from '../interfaces/trip';
 import { FormGroup } from '@angular/forms';
 import { formatDate } from '@angular/common';
 import { EnrollmentInfo } from '../interfaces/enrollment-info';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TripService {
 
-  private url = "http://localhost:8080/trips/all";
+  private url = environment.apiURL+"/trips/all";
 
-  private archiveTripsUrl = "http://localhost:8080/trips/archive";
+  private archiveTripsUrl = environment.apiURL+"/trips/archive";
 
-  private specificTripUrl = "http://localhost:8080/trip-details/";
+  private specificTripUrl = environment.apiURL+"/trip-details/";
 
-  private editTripUrl = "http://localhost:8080/edit-trip";
+  private editTripUrl = environment.apiURL+"/edit-trip";
 
-  private createTripUrl = "http://localhost:8080/create-trip";
+  private createTripUrl = environment.apiURL+"/create-trip";
 
-  private enrollTripUrl = "http://localhost:8080/trips/enroll?tripId=";
-  private enrollmentInfoUrl = "http://localhost:8080/trips/enrollment-info?tripId=";
+  private enrollTripUrl = environment.apiURL+"/trips/enroll?tripId=";
+  private enrollmentInfoUrl = environment.apiURL+"/trips/enrollment-info?tripId=";
 
   constructor(private httpClient: HttpClient) { }
 
