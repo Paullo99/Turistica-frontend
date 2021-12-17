@@ -76,7 +76,7 @@
             cdkAutosizeMaxRows="15" placeholder="Mapa do osadzenia (kod HTML)" formControlName="map"></textarea>
         </mat-form-field>
 
-        <button [disabled]="!createTripFormGroup.valid" (click)="createTrip()" mat-button>Utwórz wyjazd</button>
+        <button id="createTripBtn" [disabled]="!createTripFormGroup.valid" (click)="createTrip()" mat-button>Utwórz wyjazd</button>
       </form>
       <div style="text-align: left; margin-top: 10px; color: #5f4f4f; font-size:12px">
         * - pole obowiązkowe

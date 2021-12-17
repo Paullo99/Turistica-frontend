@@ -12,22 +12,24 @@ import { AddUserComponent } from './component/add-user/add-user.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 
 const routes: Routes = [
-  { path: 'trips', component: TripListComponent},
-  { path: 'archive-trips', component: ArchiveTripListComponent},
-  { path: '', component: HomePageComponent},
-  { path: 'login', component: LoginFormComponent},
-  { path: 'register', component: RegisterFormComponent},
-  { path: 'trip-details/:id', component: TripDetailsComponent},
-  { path: 'create-trip', component: CreateTripComponent},
-  { path: 'user-list', component: UserListComponent},
-  { path: 'add-user', component: AddUserComponent},
-  { path: 'change-password', component: ChangePasswordComponent}
+  { path: 'trips', component: TripListComponent },
+  { path: 'archive-trips', component: ArchiveTripListComponent },
+  { path: '', component: HomePageComponent },
+  { path: 'login', component: LoginFormComponent },
+  { path: 'register', component: RegisterFormComponent },
+  { path: 'trip-details/:id', component: TripDetailsComponent },
+  { path: 'create-trip', component: CreateTripComponent },
+  { path: 'user-list', component: UserListComponent },
+  { path: 'add-user', component: AddUserComponent },
+  { path: 'change-password', component: ChangePasswordComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{
-    scrollPositionRestoration: 'enabled'
-  })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

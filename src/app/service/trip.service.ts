@@ -2,16 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Trip } from '../interface/trip';
-import { FormGroup } from '@angular/forms';
-import { formatDate } from '@angular/common';
 import { EnrollmentInfo } from '../interface/enrollment-info';
 import { environment } from 'src/environments/environment';
+import { TripToInsert } from '../class/trip-to-insert';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TripService {
-  private url = environment.apiURL + '/trips/all';
+  private getTripsUrl = environment.apiURL + '/trips/all';
   private archiveTripsUrl = environment.apiURL + '/trips/archive';
   private specificTripUrl = environment.apiURL + '/trip-details/';
   private editTripUrl = environment.apiURL + '/edit-trip';
@@ -23,7 +22,7 @@ export class TripService {
   constructor(private httpClient: HttpClient) {}
 
   public getTrips(): Observable<Trip[]> {
-    return this.httpClient.get<Trip[]>(this.url);
+    return this.httpClient.get<Trip[]>(this.getTripsUrl);
   }
 
   public getTripsFilteredByDate(
@@ -31,7 +30,7 @@ export class TripService {
     endDate: string
   ): Observable<Trip[]> {
     return this.httpClient.get<Trip[]>(
-      this.url + '?beginDate=' + beginDate + '&endDate=' + endDate
+      this.getTripsUrl + '?beginDate=' + beginDate + '&endDate=' + endDate
     );
   }
 
@@ -47,28 +46,11 @@ export class TripService {
     return this.httpClient.put<any>(this.editTripUrl, trip);
   }
 
-  public insertNewTrip(createTripFormGroup: FormGroup) {
-    return this.httpClient.post<any>(this.createTripUrl, {
-      name: createTripFormGroup.value.name,
-      tripType: createTripFormGroup.value.tripType,
-      beginDate: formatDate(
-        createTripFormGroup.value.beginDate,
-        'yyyy-MM-dd',
-        'en'
-      ),
-      endDate: formatDate(
-        createTripFormGroup.value.endDate,
-        'yyyy-MM-dd',
-        'en'
-      ),
-      pricePerPerson: createTripFormGroup.value.pricePerPerson,
-      peopleLimit: createTripFormGroup.value.peopleLimit,
-      description: createTripFormGroup.value.description,
-      map: createTripFormGroup.value.map,
-    });
+  public insertNewTrip(tripToInsert: TripToInsert) {
+    return this.httpClient.post<any>(this.createTripUrl, tripToInsert);
   }
 
-  public enrollToATrip(id: number) {
+  public enrollInTheTrip(id: number) {
     return this.httpClient.post<any>(this.enrollTripUrl + id, {});
   }
 

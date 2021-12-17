@@ -30,7 +30,7 @@
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let user">
-        <button style="color: #504f4f" mat-icon-button (click)="edit(user)">
+        <button id="editBtn" style="color: #504f4f" mat-icon-button (click)="edit(user)">
           <mat-icon>edit</mat-icon>
         </button>
       </td>
@@ -39,7 +39,7 @@
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let user">
-        <button style="color: #504f4f" mat-icon-button (click)="delete(user)">
+        <button id="deleteBtn" style="color: #504f4f" mat-icon-button (click)="delete(user)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>

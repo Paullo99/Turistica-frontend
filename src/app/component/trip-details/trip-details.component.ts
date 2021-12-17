@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { EditTripComponent } from '../edit-trip/edit-trip.component';
 import { EnrollmentInfo } from '../../interface/enrollment-info';
 import { Trip } from '../../interface/trip';
@@ -53,7 +53,7 @@ export class TripDetailsComponent implements OnInit {
   }
 
   submit() {
-    this.tripService.enrollToATrip(this.id).subscribe(
+    this.tripService.enrollInTheTrip(this.id).subscribe(
       (data) => {
         this.tripService.getEnrollmentInfo(this.id).subscribe((data) => {
           this.enrollmentInfo = data;

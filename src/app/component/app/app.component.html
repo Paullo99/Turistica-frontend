@@ -3,38 +3,38 @@
         <img src="./assets/images/logo_turistica.png" width="120px" style="padding-top: 10px" routerLink="" />
     </div>
     <div style="font-family: Bahnschrift; padding-right: 30px">
-        <button *ngIf="this.role != 'ROLE_ADMIN'" mat-button [matMenuTriggerFor]="menu">
+        <button id="menuBtn" *ngIf="this.role != 'ROLE_ADMIN'" mat-button [matMenuTriggerFor]="menu">
             O nas
         </button>
-        <mat-menu #menu="matMenu" xPosition="before">
-            <button mat-menu-item (click)="openInfoGeneralDialog()">Info</button>
-            <button mat-menu-item (click)="openInfoPaymentDialog()">Płatności</button>
+        <mat-menu id="matMenu" #menu="matMenu" xPosition="before">
+            <button id="infoBtn" mat-menu-item (click)="openInfoGeneralDialog()">Info</button>
+            <button id="paymentBtn" mat-menu-item (click)="openInfoPaymentDialog()">Płatności</button>
         </mat-menu>
-        <button mat-button *ngIf="this.role != 'ROLE_ADMIN'" routerLink="/trips">
+        <button id="tripsBtn" mat-button *ngIf="this.role != 'ROLE_ADMIN'" routerLink="/trips">
             Przeglądaj oferty
         </button>
-        <button mat-button *ngIf="this.role != 'ROLE_ADMIN'" routerLink="/archive-trips">
+        <button id="archiveTripsBtn" mat-button *ngIf="this.role != 'ROLE_ADMIN'" routerLink="/archive-trips">
             Oferty archiwalne
         </button>
-        <button mat-button *ngIf="this.isAuthenticated === false" routerLink="/login">
+        <button id="loginBtn" mat-button *ngIf="this.isAuthenticated === false" routerLink="/login">
             Zaloguj się
         </button>
-        <button mat-button *ngIf="this.isAuthenticated === false" routerLink="/register">
+        <button id="registerBtn" mat-button *ngIf="this.isAuthenticated === false" routerLink="/register">
             Zarejestruj się
         </button>
-        <button mat-button *ngIf="this.role === 'ROLE_GUIDE'" routerLink="/create-trip">
+        <button id="createTripBtn" mat-button *ngIf="this.role === 'ROLE_GUIDE'" routerLink="/create-trip">
             Stwórz ofertę wyjazdu
         </button>
-        <button mat-button *ngIf="this.role === 'ROLE_ADMIN'" routerLink="/add-user">
+        <button id="addUserBtn" mat-button *ngIf="this.role === 'ROLE_ADMIN'" routerLink="/add-user">
             Dodaj nowe konto
         </button>
-        <button mat-button *ngIf="this.role === 'ROLE_ADMIN'" routerLink="/user-list">
+        <button id="userListBtn" mat-button *ngIf="this.role === 'ROLE_ADMIN'" routerLink="/user-list">
             Zarządzaj użytkownikami
         </button>
-        <button mat-button *ngIf="this.isAuthenticated === true" routerLink="/change-password">
+        <button id="changePasswordBtn" mat-button *ngIf="this.isAuthenticated === true" routerLink="/change-password">
             Zmień hasło
         </button>
-        <button mat-button *ngIf="this.isAuthenticated === true" (click)="logout()">
+        <button id="logoutBtn" mat-button *ngIf="this.isAuthenticated === true" (click)="logout()">
             Wyloguj
         </button>
     </div>

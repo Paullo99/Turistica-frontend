@@ -4,18 +4,18 @@
       <h3>Logowanie</h3>
       <form [formGroup]="loginFormGroup">
         <mat-form-field>
-          <input matInput placeholder="Email" formControlName="email">
+          <input id="emailInput" matInput placeholder="Email" formControlName="email">
           <mat-error>
             Wprowadź poprawny adres email!
           </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="password" placeholder="Hasło" formControlName="password">
+          <input id="passwordInput" matInput type="password" placeholder="Hasło" formControlName="password">
           <mat-error>
             Wprowadź hasło!
           </mat-error>
         </mat-form-field>
-        <button [disabled]="!loginFormGroup.valid" (click)="login()" mat-button>Zaloguj</button>
+        <button id="submitLoginBtn" [disabled]="!loginFormGroup.valid" (click)="login()" mat-button>Zaloguj</button>
       </form>
     </mat-card-content>
 

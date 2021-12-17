@@ -5,35 +5,35 @@
             <form [formGroup]="addNewUserFormGroup">
 
                 <mat-form-field>
-                    <input matInput placeholder="Imię" formControlName="name" required>
+                    <input id="nameInput" matInput placeholder="Imię" formControlName="name" required>
                     <mat-error>
                         To pole nie może być puste!
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input matInput placeholder="Nazwisko" formControlName="lastName" required>
+                    <input id="lastNameInput" matInput placeholder="Nazwisko" formControlName="lastName" required>
                     <mat-error>
                         To pole nie może być puste!
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input matInput placeholder="Email" formControlName="email" required>
+                    <input id="emailInput" matInput placeholder="Email" formControlName="email" required>
                     <mat-error>
                         Wprowadź poprawny adres email!
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input matInput placeholder="Numer telefonu" formControlName="phoneNumber">
+                    <input id="phoneNumberInput" matInput placeholder="Numer telefonu" formControlName="phoneNumber">
                     <mat-error>
                         Wprowadź poprawny numer telefonu!
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
-                    <mat-select placeholder="Rola użytkownika" formControlName="role" required>
+                    <mat-select id="roleSelectInput" placeholder="Rola użytkownika" formControlName="role" required>
                         <mat-option value="ROLE_GUIDE">
                             Przewodnik
                         </mat-option>
@@ -46,7 +46,7 @@
                     </mat-error>
                 </mat-form-field>
 
-                <button [disabled]="!addNewUserFormGroup.valid" (click)="addNewUser()" mat-button>Utwórz konto</button>
+                <button id="addNewUserSubmitBtn" [disabled]="!addNewUserFormGroup.valid" (click)="addNewUser()" mat-button>Utwórz konto</button>
             </form>
             <div style="text-align: left; margin-top: 10px; color: #5f4f4f; font-size:12px">
                 * - pole obowiązkowe
