@@ -24,7 +24,7 @@ export class TripListComponent implements OnInit {
       (data) => {
         this.trips = data;
       },
-      () => appService.showSnackBar('Błąd pobierania danych. Spróbuj ponownie.')
+      (error) => appService.showSnackBar('Błąd pobierania danych. Spróbuj ponownie.')
     );
   }
 
