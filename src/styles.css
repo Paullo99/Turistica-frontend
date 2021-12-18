@@ -1,4 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Bahnschrift", sans-serif;
+}
+
+.snackbar {
+    min-width: 500px;
+    height: auto;
+    font-size: 30px !important;
+    background: #7ac876;
+    color: black;
+}
+
+.mat-simple-snackbar {
+    padding-top: 5px;
+    padding-left: 5px;
+    font-size: 17px !important;
+    margin: auto;
+}
+
+.snackbar .mat-simple-snackbar-action {
+    background: #68b364;
+    color: black;
+    transition: 0.3s all ease;
+    margin-right: 5px;
+}
+
+.snackbar .mat-simple-snackbar-action:hover {
+    background: #6e7980;
+    color: white;
+    transition: 0.3s all ease;
+}

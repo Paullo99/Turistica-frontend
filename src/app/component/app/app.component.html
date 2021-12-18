@@ -1,0 +1,43 @@
+<mat-toolbar class="navbar" style="margin-bottom: 110px">
+    <div class="image-container">
+        <img src="./assets/images/logo_turistica.png" width="120px" style="padding-top: 10px" routerLink="" />
+    </div>
+    <div style="font-family: Bahnschrift; padding-right: 30px">
+        <button id="menuBtn" *ngIf="this.role != 'ROLE_ADMIN'" mat-button [matMenuTriggerFor]="menu">
+            O nas
+        </button>
+        <mat-menu id="matMenu" #menu="matMenu" xPosition="before">
+            <button id="infoBtn" mat-menu-item (click)="openInfoGeneralDialog()">Info</button>
+            <button id="paymentBtn" mat-menu-item (click)="openInfoPaymentDialog()">Płatności</button>
+        </mat-menu>
+        <button id="tripsBtn" mat-button *ngIf="this.role != 'ROLE_ADMIN'" routerLink="/trips">
+            Przeglądaj oferty
+        </button>
+        <button id="archiveTripsBtn" mat-button *ngIf="this.role != 'ROLE_ADMIN'" routerLink="/archive-trips">
+            Oferty archiwalne
+        </button>
+        <button id="loginBtn" mat-button *ngIf="this.isAuthenticated === false" routerLink="/login">
+            Zaloguj się
+        </button>
+        <button id="registerBtn" mat-button *ngIf="this.isAuthenticated === false" routerLink="/register">
+            Zarejestruj się
+        </button>
+        <button id="createTripBtn" mat-button *ngIf="this.role === 'ROLE_GUIDE'" routerLink="/create-trip">
+            Stwórz ofertę wyjazdu
+        </button>
+        <button id="addUserBtn" mat-button *ngIf="this.role === 'ROLE_ADMIN'" routerLink="/add-user">
+            Dodaj nowe konto
+        </button>
+        <button id="userListBtn" mat-button *ngIf="this.role === 'ROLE_ADMIN'" routerLink="/user-list">
+            Zarządzaj użytkownikami
+        </button>
+        <button id="changePasswordBtn" mat-button *ngIf="this.isAuthenticated === true" routerLink="/change-password">
+            Zmień hasło
+        </button>
+        <button id="logoutBtn" mat-button *ngIf="this.isAuthenticated === true" (click)="logout()">
+            Wyloguj
+        </button>
+    </div>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

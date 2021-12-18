@@ -1,0 +1,39 @@
+<body style="padding-top: 135px;">
+    <mat-card>
+        <button id="submitBtn" mat-button>
+            <span id="enrollSpan" *ngIf="!this.isEnrolled&&this.role==='ROLE_USER'&&!isArchive(trip)" (click)="submit()">
+                Chcę wziąć udział!
+            </span>
+            <span id="cancelSpan" *ngIf="this.isEnrolled&&this.role==='ROLE_USER'&&!isArchive(trip)" (click)="submit()">
+                Wypisz mnie z wyjazdu
+            </span>
+            <span id="editSpan" *ngIf="this.role==='ROLE_GUIDE'" (click)="edit(trip)">Edytuj</span>
+        </button>
+        <br><br><br>
+        <mat-card-title>{{trip?.name}}</mat-card-title>
+
+        <mat-card-content>
+            {{trip?.tripType.name}} <br><br>
+            Data wyjazdu: <b>{{trip?.beginDate | date: 'dd.MM.yyyy'}} r.</b> <br><br>
+            Powrót: <b>{{trip?.endDate | date: 'dd.MM.yyyy'}} r.</b> <br><br>
+            Cena: <b>{{trip?.pricePerPerson}} zł/os. </b> <br><br>
+            Limit osób: <b>{{enrollmentInfo?.enrolledPeople}} / {{trip?.peopleLimit}}
+                <div id="warning-message" *ngIf="enrollmentInfo?.enrolledPeople === trip?.peopleLimit">
+                    BRAK WOLNYCH MIEJSC!
+                </div>
+            </b>
+            <br><br><br>
+            <div id="description">
+                <span style="white-space: pre-line">
+                    {{trip?.description}}
+                </span>
+            </div>
+
+            <div *ngIf="trip?.map">
+                <br><br>
+                Poglądowa mapa wyjazdu:
+                <div [innerHTML]="trip?.map | safeHtml" style="margin: auto;"></div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</body>

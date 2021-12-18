@@ -1,0 +1,62 @@
+mat-form-field {
+  left: 20.3%;
+  width: 200px;
+  margin-bottom: 10px;
+  margin-right: 40px;
+}
+
+#filter-button {
+  background-color: #f2f2f2;
+  left: 21.5%;
+  transition: 0.6s all ease;
+}
+
+#filter-button:hover {
+  background-color: #6b6b6b;
+  color: #f2f2f2;
+  transition: 0.6s all ease;
+}
+
+mat-card {
+  background: #f2f2f2;
+  height: 250px;
+  width: 1150px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+mat-card-title {
+  margin-top: 30px;
+  font-size: 35px;
+}
+
+mat-card-title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+mat-card-subtitle {
+  padding-top: 10px;
+  font-size: 17px;
+}
+
+mat-card-content {
+  padding-top: 10px;
+  font-size: 20px;
+  font-family: "Bahnschrift";
+}
+
+img {
+  height: 250px;
+  padding-left: 10px;
+  width: auto;
+}
+
+#img-column {
+  width: 400px;
+}
+
+.column {
+  float: left;
+  width: 750px;
+}

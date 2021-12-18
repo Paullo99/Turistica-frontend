@@ -1,0 +1,76 @@
+<body style="padding-top: 135px;">
+  <mat-card>
+    <mat-card-content>
+      <h3>Rejestracja</h3>
+      <form [formGroup]="registerFormGroup">
+
+        <mat-form-field>
+          <input id="nameInput" matInput placeholder="Imię" formControlName="name" required>
+          <mat-error>
+            To pole nie może być puste!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input id="lastNameInput" matInput placeholder="Nazwisko" formControlName="lastName" required>
+          <mat-error>
+            To pole nie może być puste!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input id="addressInput" matInput placeholder="Ulica i nr budynku / nr mieszkania" formControlName="address" required>
+          <mat-error>
+            To pole nie może być puste!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input id="cityInput" matInput placeholder="Miejscowość" formControlName="city" required>
+          <mat-error>
+            To pole nie może być puste!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input id="postcodeInput" matInput placeholder="Kod pocztowy" formControlName="postcode" required>
+          <mat-error>
+            To pole nie może być puste!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input id="emailInput" matInput placeholder="Email" formControlName="email" required>
+          <mat-error>
+            Wprowadź poprawny adres email!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input id="phoneNumberInput" matInput placeholder="Numer telefonu" formControlName="phoneNumber">
+          <mat-error>
+            Wprowadź poprawny numer telefonu!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input id="passwordInput" matInput type="password" placeholder="Hasło" formControlName="password" required>
+          <mat-error>
+            Hasło musi zawierać min. 8 znaków!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input id="repeatPasswordInput" matInput type="password" placeholder="Powtórz hasło" formControlName="repeatPassword" required>
+          <mat-error>
+            Hasła muszą być takie same!
+          </mat-error>
+        </mat-form-field>
+        <button id="registerSubmitBtn" [disabled]="!registerFormGroup.valid" (click)="register()" mat-button>Zarejestruj</button>
+      </form>
+      <div style="text-align: left; margin-top: 10px; color: #5f4f4f; font-size:12px">
+        * - pole obowiązkowe
+      </div>
+    </mat-card-content>
+  </mat-card>
+</body>
