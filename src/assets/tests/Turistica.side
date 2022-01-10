@@ -1,0 +1,122 @@
+{
+  "id": "dbe014d7-7680-49ca-af48-a582df39aec4",
+  "version": "2.0",
+  "name": "Turistica",
+  "url": "https://turistica.herokuapp.com",
+  "tests": [{
+    "id": "fe1a9407-ee32-4dac-9ce0-30d7e94647fa",
+    "name": "Login failed",
+    "commands": [{
+      "id": "cd8b019b-1736-4773-9026-3406a9b34e19",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "69561295-e9eb-4607-b1e0-faa60dbc2908",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1654x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "55107433-91fd-4ec8-a584-e762ea8892c5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cdk-focused > .mat-button-wrapper",
+      "targets": [
+        ["css=.cdk-focused > .mat-button-wrapper", "css:finder"],
+        ["xpath=//button[4]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Zaloguj się')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "020fc8ab-945a-49c6-896a-0b4f1e15ae06",
+      "comment": "",
+      "command": "click",
+      "target": "id=mat-input-0",
+      "targets": [
+        ["id=mat-input-0", "id"],
+        ["css=#mat-input-0", "css:finder"],
+        ["xpath=//input[@id='mat-input-0']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e557f08e-d030-42d4-90a5-7aee8189d74a",
+      "comment": "",
+      "command": "type",
+      "target": "id=mat-input-0",
+      "targets": [
+        ["id=mat-input-0", "id"],
+        ["css=#mat-input-0", "css:finder"],
+        ["xpath=//input[@id='mat-input-0']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "macionczyk.paw@gmail.com"
+    }, {
+      "id": "071a00c6-e5fc-4ba5-8316-8180365c9f49",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.ng-dirty .mat-button-wrapper",
+      "targets": [
+        ["css=.ng-dirty .mat-button-wrapper", "css:finder"],
+        ["xpath=//form/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "33e9b6ab-53a3-4928-985f-2ca1ff5e0209",
+      "comment": "",
+      "command": "type",
+      "target": "id=mat-input-1",
+      "targets": [
+        ["id=mat-input-1", "id"],
+        ["css=#mat-input-1", "css:finder"],
+        ["xpath=//input[@id='mat-input-1']", "xpath:attributes"],
+        ["xpath=//mat-form-field[2]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "17a3d989-7d3c-4bf4-a5a6-e3e2c3bb2c4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cdk-focused > .mat-button-wrapper",
+      "targets": [
+        ["css=.cdk-focused > .mat-button-wrapper", "css:finder"],
+        ["xpath=//form/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f99f248-6e08-4c62-be30-505be4259f61",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.cdk-focused > .mat-button-wrapper",
+      "targets": [
+        ["css=.cdk-focused > .mat-button-wrapper", "css:finder"],
+        ["xpath=//form/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8cad7706-01b7-4953-bff1-ae1c1c84ef98",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.cdk-focused",
+      "targets": [
+        ["css=.cdk-focused", "css:finder"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "5aff7881-8d03-4d87-a806-5dd9b03ef9fc",
+    "name": "Login Tests",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://turistica.herokuapp.com/"],
+  "plugins": []
+}
